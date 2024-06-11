@@ -25,18 +25,13 @@ jobs:
       
     - name: Set up Docker Buildx
       uses: docker/setup-buildx-action@v2.9.1
-    - name: Login to Docker Hub
-      uses: registry.cn-shenzhen.aliyuncs.com
-      with:
-        username: ${{ secrets.ALI_USERNAME }}
-        password: ${{ secrets.DOCKER_PASSWORD }}
-        logout: false
     
     # 使用shell命令批量同步所需的镜像到dockerHub中
     - name: Use Skopeo Tools Sync Image to Docker Hub
       run: |
         #!/usr/bin/env bash
-        skopeo copy --all docker://gcr.io/tekton-releases/github.com/tektoncd/pipeline/cmd/controller:v0.60.2 registry.cn-shenzhen.aliyuncs.com/mao_devops/tektoncd-pipeline-controller:v0.60.2
+        echo ${{ secrets.DOCKER_PASSWORD }} |docker login --username=${{ secrets.ALI_USERNAME }} registry.cn-shenzhen.aliyuncs.com --password-stdin
+        skopeo copy --all docker://gcr.io/tekton-releases/github.com/tektoncd/pipeline/cmd/controller:v0.60.2 registry.cn-shenzhen.aliyuncs.com/mao_devops/tekton_pipeline:v0.60.2
         #skopeo copy --all docker://gcr.io/tekton-releases/github.com/tektoncd/pipeline/cmd/events:v0.60.2 docker://gancaowulong/tektoncd-pipeline-events:v0.60.2
         #skopeo copy --all docker://gcr.io/tekton-releases/github.com/tektoncd/pipeline/cmd/resolvers:v0.60.2 docker://gancaowulong/tektoncd-pipeline-resolvers:v0.60.2
         #skopeo copy --all docker://gcr.io/tekton-releases/github.com/tektoncd/pipeline/cmd/webhook:v0.60.2 docker://gancaowulong/tektoncd-pipeline-webhook:v0.60.2
