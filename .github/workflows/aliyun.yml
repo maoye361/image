@@ -1,6 +1,6 @@
 # 1.首先，在workflow文件中定义触发器，例如每次推送到主分支时触发同步操作。
 # 工作流名称
-name: Sync-Images-to-DockerHub-Example
+name: Sync-Ali
 # 工作流运行时显示名称
 run-name: ${{ github.actor }} is Sync Images to DockerHub.
 # 怎样触发工作流
