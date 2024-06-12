@@ -31,11 +31,25 @@ jobs:
       run: |
         #!/usr/bin/env bash
         echo ${{ secrets.DOCKER_PASSWORD }} |docker login --username=${{ secrets.ALI_USERNAME }} registry.cn-shenzhen.aliyuncs.com --password-stdin
-        docker pull gcr.io/tekton-releases/github.com/tektoncd/pipeline/cmd/controller:v0.60.2 && docker tag gcr.io/tekton-releases/github.com/tektoncd/pipeline/cmd/controller:v0.60.2 registry.cn-shenzhen.aliyuncs.com/mao_devops/tekton_pipeline:v0.60.2 && docker push registry.cn-shenzhen.aliyuncs.com/mao_devops/tekton_pipeline:v0.60.2
+        #docker pull gcr.io/tekton-releases/github.com/tektoncd/pipeline/cmd/controller:v0.60.2 && docker tag gcr.io/tekton-releases/github.com/tektoncd/pipeline/cmd/controller:v0.60.2 registry.cn-shenzhen.aliyuncs.com/mao_devops/tekton_pipeline:v0.60.2 && docker push registry.cn-shenzhen.aliyuncs.com/mao_devops/tekton_pipeline:v0.60.2
         
-        docker pull gcr.io/tekton-releases/github.com/tektoncd/pipeline/cmd/events:v0.60.2 && docker tag gcr.io/tekton-releases/github.com/tektoncd/pipeline/cmd/events:v0.60.2 registry.cn-shenzhen.aliyuncs.com/mao_devops/tekton_events:v0.60.2 && docker push registry.cn-shenzhen.aliyuncs.com/mao_devops/tekton_events:v0.60.2
+        #docker pull gcr.io/tekton-releases/github.com/tektoncd/pipeline/cmd/events:v0.60.2 && docker tag gcr.io/tekton-releases/github.com/tektoncd/pipeline/cmd/events:v0.60.2 registry.cn-shenzhen.aliyuncs.com/mao_devops/tekton_events:v0.60.2 && docker push registry.cn-shenzhen.aliyuncs.com/mao_devops/tekton_events:v0.60.2
 
-        docker pull gcr.io/tekton-releases/github.com/tektoncd/pipeline/cmd/resolvers:v0.60.2 && docker tag gcr.io/tekton-releases/github.com/tektoncd/pipeline/cmd/resolvers:v0.60.2 registry.cn-shenzhen.aliyuncs.com/mao_devops/tekton_resolvers:v0.60.2 && docker push registry.cn-shenzhen.aliyuncs.com/mao_devops/tekton_resolvers:v0.60.2
+        #docker pull gcr.io/tekton-releases/github.com/tektoncd/pipeline/cmd/resolvers:v0.60.2 && docker tag gcr.io/tekton-releases/github.com/tektoncd/pipeline/cmd/resolvers:v0.60.2 registry.cn-shenzhen.aliyuncs.com/mao_devops/tekton_resolvers:v0.60.2 && docker push registry.cn-shenzhen.aliyuncs.com/mao_devops/tekton_resolvers:v0.60.2
 
-        docker pull gcr.io/tekton-releases/github.com/tektoncd/pipeline/cmd/webhook:v0.60.2 && docker tag gcr.io/tekton-releases/github.com/tektoncd/pipeline/cmd/webhook:v0.60.2 registry.cn-shenzhen.aliyuncs.com/mao_devops/tekton_webhook:v0.60.2 && docker push registry.cn-shenzhen.aliyuncs.com/mao_devops/tekton_webhook:v0.60.2
+        #docker pull gcr.io/tekton-releases/github.com/tektoncd/pipeline/cmd/webhook:v0.60.2 && docker tag gcr.io/tekton-releases/github.com/tektoncd/pipeline/cmd/webhook:v0.60.2 registry.cn-shenzhen.aliyuncs.com/mao_devops/tekton_webhook:v0.60.2 && docker push registry.cn-shenzhen.aliyuncs.com/mao_devops/tekton_webhook:v0.60.2
+
+        docker pull gcr.io/tekton-releases/github.com/tektoncd/pipeline/cmd/git-init:v0.60.2 && docker tag gcr.io/tekton-releases/github.com/tektoncd/pipeline/cmd/git-init:v0.60.2 registry.cn-shenzhen.aliyuncs.com/mao_devops/tekton_git-init:v0.60.2 && docker push registry.cn-shenzhen.aliyuncs.com/mao_devops/tekton_git-init:v0.60.2
+
+        docker pull gcr.io/tekton-releases/github.com/tektoncd/pipeline/cmd/entrypoint:v0.60.2 && docker tag gcr.io/tekton-releases/github.com/tektoncd/pipeline/cmd/entrypoint:v0.60.2 registry.cn-shenzhen.aliyuncs.com/mao_devops/tekton_entrypoint:v0.60.2 && docker push registry.cn-shenzhen.aliyuncs.com/mao_devops/tekton_entrypoint:v0.60.2
+
+        docker pull gcr.io/tekton-releases/github.com/tektoncd/pipeline/cmd/nop:v0.60.2 && docker tag gcr.io/tekton-releases/github.com/tektoncd/pipeline/cmd/nop:v0.60.2 registry.cn-shenzhen.aliyuncs.com/mao_devops/tekton_nop:v0.60.2 && docker push registry.cn-shenzhen.aliyuncs.com/mao_devops/tekton_nop:v0.60.2
+
+        docker pull gcr.io/tekton-releases/github.com/tektoncd/pipeline/cmd/sidecarlogresults:v0.60.2 && docker tag gcr.io/tekton-releases/github.com/tektoncd/pipeline/cmd/sidecarlogresults:v0.60.2 registry.cn-shenzhen.aliyuncs.com/mao_devops/tekton_sidecarlogresults:v0.60.2 && docker push registry.cn-shenzhen.aliyuncs.com/mao_devops/tekton_sidecarlogresults:v0.60.2
+
+        docker pull gcr.io/tekton-releases/github.com/tektoncd/pipeline/cmd/imagedigestexporter:v0.60.2 && docker tag gcr.io/tekton-releases/github.com/tektoncd/pipeline/cmd/imagedigestexporter:v0.60.2 registry.cn-shenzhen.aliyuncs.com/mao_devops/tekton_imagedigestexporter:v0.60.2 && docker push registry.cn-shenzhen.aliyuncs.com/mao_devops/tekton_imagedigestexporter:v0.60.2
+
+        docker pull gcr.io/tekton-releases/github.com/tektoncd/pipeline/cmd/pullrequest-init:v0.60.2 && docker tag gcr.io/tekton-releases/github.com/tektoncd/pipeline/cmd/pullrequest-init:v0.60.2 registry.cn-shenzhen.aliyuncs.com/mao_devops/tekton_pullrequest-init:v0.60.2 && docker push registry.cn-shenzhen.aliyuncs.com/mao_devops/tekton_pullrequest-init:v0.60.2
+
+        docker pull gcr.io/tekton-releases/github.com/tektoncd/pipeline/cmd/workingdirinit:v0.60.2 && docker tag gcr.io/tekton-releases/github.com/tektoncd/pipeline/cmd/workingdirinit:v0.60.2 registry.cn-shenzhen.aliyuncs.com/mao_devops/tekton_workingdirinit:v0.60.2 && docker push registry.cn-shenzhen.aliyuncs.com/mao_devops/tekton_workingdirinit:v0.60.2
 
